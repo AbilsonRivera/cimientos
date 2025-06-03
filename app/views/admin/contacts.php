@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Administrador | Cimientos</title>
+    <title>Gestionar Contactos - Administrador | Cimientos</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -49,91 +49,79 @@
             border-radius: 50px;
             cursor: pointer;
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-size: 14px;
+            font-weight: 600;
             transition: all 0.3s ease;
         }
 
         .logout-btn:hover, .back-btn:hover {
-            background: rgba(188, 108, 37, 1);
+            background: #bc6c25;
             transform: translateY(-2px);
         }
 
-        .container {
+        .main-container {
             display: flex;
-            min-height: calc(100vh - 100px);
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 2rem;
+            padding: 2rem 1rem;
         }
 
         .sidebar {
-            width: 280px;
             background: white;
-            box-shadow: 2px 0 10px rgba(40, 54, 24, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .sidebar-header {
             padding: 1.5rem;
-            background: #606c38;
-            color: white;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(40, 54, 24, 0.1);
+            width: 300px;
+            height: fit-content;
+            position: sticky;
+            top: 2rem;
         }
 
-        .sidebar-header h2 {
-            font-size: 1.1rem;
-            font-weight: 600;
+        .sidebar h3 {
+            color: #283618;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-bottom: 2px solid #bc6c25;
+            padding-bottom: 0.5rem;
         }
 
-        .nav-menu {
+        .project-list {
             list-style: none;
-            padding: 1rem 0;
         }
 
-        .nav-item {
-            margin: 0.25rem 0;
+        .project-item {
+            margin-bottom: 0.5rem;
         }
 
-        .nav-link {
+        .project-link {
             display: block;
-            padding: 0.75rem 1.5rem;
-            color: #283618;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-        }
-
-        .nav-link:hover {
-            background: #f8f9fa;
-            border-left-color: #bc6c25;
-        }
-
-        .nav-link.active {
-            background: rgba(96, 108, 56, 0.1);
-            border-left-color: #606c38;
-            color: #283618;
-            font-weight: 600;
-        }
-
-        .main-content {
-            flex: 1;
-            padding: 2rem;
-            overflow-x: auto;
-        }
-
-        .breadcrumb {
-            background: white;
-            padding: 1rem 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 10px rgba(40, 54, 24, 0.1);
-            font-size: 0.9rem;
+            padding: 12px 15px;
             color: #606c38;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
-        .breadcrumb span {
+        .project-link:hover {
+            background: #f8f9fa;
             color: #283618;
-            font-weight: 600;
+            transform: translateX(5px);
+        }
+
+        .project-link.active {
+            background: linear-gradient(135deg, #bc6c25 0%, #a55a1f 100%);
+            color: white;
+        }
+
+        .content {
+            flex: 1;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(40, 54, 24, 0.1);
         }
 
         .content-header {
@@ -141,73 +129,55 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
+            border-bottom: 2px solid #f8f9fa;
+            padding-bottom: 1rem;
         }
 
         .content-header h2 {
             color: #283618;
-            font-size: 1.8rem;
             font-weight: 700;
         }
 
-        .stats-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(40, 54, 24, 0.1);
-            margin-bottom: 2rem;
-            border-left: 4px solid #606c38;
-        }
-
-        .stats-card h3 {
-            color: #283618;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .stats-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #bc6c25;
+        .contacts-count {
+            background: #bc6c25;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
 
         .table-container {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(40, 54, 24, 0.1);
-            overflow: hidden;
+            overflow-x: auto;
             margin-bottom: 2rem;
         }
 
-        .table-header {
-            background: #606c38;
-            color: white;
-            padding: 1rem 1.5rem;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .table {
+        table {
             width: 100%;
             border-collapse: collapse;
+            background: white;
         }
 
-        .table th {
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        th {
             background: #f8f9fa;
             color: #283618;
-            font-weight: 600;
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 2px solid #e9ecef;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        td {
+            color: #606c38;
             font-size: 0.9rem;
         }
 
-        .table td {
-            padding: 1rem;
-            border-bottom: 1px solid #e9ecef;
-            font-size: 0.9rem;
-        }
-
-        .table tbody tr:hover {
+        tr:hover {
             background: #f8f9fa;
         }
 
@@ -215,11 +185,10 @@
             background: #dc3545;
             color: white;
             border: none;
-            padding: 8px 16px;
+            padding: 5px 10px;
             border-radius: 5px;
             cursor: pointer;
             font-size: 0.8rem;
-            font-weight: 500;
             transition: all 0.3s ease;
         }
 
@@ -232,50 +201,43 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 0.5rem;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(40, 54, 24, 0.1);
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
-        .pagination a,
-        .pagination span {
+        .pagination a, .pagination span {
             padding: 8px 12px;
-            border-radius: 5px;
             text-decoration: none;
+            border-radius: 5px;
+            color: #606c38;
             font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .pagination a {
-            color: #283618;
-            border: 1px solid #dee2e6;
         }
 
         .pagination a:hover {
-            background: #606c38;
-            color: white;
-            border-color: #606c38;
+            background: #f8f9fa;
+            color: #283618;
         }
 
         .pagination .current {
             background: #bc6c25;
             color: white;
-            border: 1px solid #bc6c25;
         }
 
         .pagination .disabled {
-            color: #6c757d;
-            border: 1px solid #dee2e6;
+            color: #ccc;
             cursor: not-allowed;
         }
 
+        .no-data {
+            text-align: center;
+            padding: 3rem;
+            color: #606c38;
+        }
+
         .alert {
-            padding: 1rem 1.5rem;
+            padding: 12px 15px;
             border-radius: 10px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             font-weight: 500;
         }
 
@@ -291,214 +253,130 @@
             border: 1px solid #f5c6cb;
         }
 
-        .no-data {
-            text-align: center;
-            padding: 3rem;
-            color: #6c757d;
-            font-style: italic;
-        }        .mobile-toggle {
-            display: none;
-            background: #606c38;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-right: 1rem;
-        }
-
-        .desktop-only {
-            display: block;
-        }
-
-        .mobile-only {
-            display: none;
-        }
-
-        .welcome-text {
-            font-size: 0.9rem;
-        }
-
-        .nav-divider {
-            height: 1px;
-            background: #e9ecef;
-            margin: 1rem 1.5rem;
-        }
-
-        .logout-mobile {
-            color: #dc3545 !important;
-            font-weight: 600;
-        }
-
-        .logout-mobile:hover {
-            background: rgba(220, 53, 69, 0.1) !important;
-            border-left-color: #dc3545 !important;
-        }
-
-        .logout-icon {
-            margin-right: 0.5rem;
-        }        @media (max-width: 768px) {
-            .mobile-toggle {
-                display: block;
-            }
-
-            .desktop-only {
-                display: none;
-            }
-
-            .mobile-only {
-                display: block;
-            }
-
-            .welcome-text {
-                font-size: 0.8rem;
-            }
-
-            .sidebar {
-                position: fixed;
-                left: -280px;
-                top: 0;
-                height: 100vh;
-                z-index: 1000;
-            }
-
-            .sidebar.active {
-                transform: translateX(280px);
-            }
-
-            .container {
-                flex-direction: column;
-            }
-
-            .main-content {
-                padding: 1rem;
-            }
-
+        /* Responsive Design */
+        @media (max-width: 768px) {
             .header {
-                flex-wrap: wrap;
+                flex-direction: column;
                 gap: 1rem;
+                padding: 1rem;
+                text-align: center;
             }
 
             .header h1 {
                 font-size: 1.2rem;
             }
 
-            .content-header {
+            .user-info {
                 flex-direction: column;
-                align-items: flex-start;
+                gap: 0.5rem;
+                width: 100%;
+            }
+
+            .main-container {
+                flex-direction: column;
+                padding: 1rem 0.5rem;
                 gap: 1rem;
             }
 
-            .content-header h2 {
-                font-size: 1.5rem;
+            .sidebar {
+                width: 100%;
+                position: static;
+            }
+
+            .content {
+                padding: 1.5rem;
+            }
+
+            .content-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
             }
 
             .table-container {
-                overflow-x: auto;
+                font-size: 0.8rem;
             }
 
-            .table {
-                min-width: 800px;
+            th, td {
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar {
+                padding: 1rem;
+            }
+
+            .content {
+                padding: 1rem;
             }
 
             .pagination {
                 flex-wrap: wrap;
-                gap: 0.25rem;
-            }
-        }        @media (max-width: 480px) {
-            .header {
-                padding: 1rem;
+                gap: 0.5rem;
             }
 
-            .header h1 {
-                font-size: 1rem;
-            }
-
-            .welcome-text {
-                font-size: 0.75rem;
-            }
-
-            .main-content {
-                padding: 0.5rem;
-            }
-
-            .stats-card {
-                padding: 1rem;
-            }
-
-            .table th,
-            .table td {
-                padding: 0.75rem 0.5rem;
+            th, td {
+                padding: 6px;
                 font-size: 0.8rem;
             }
         }
     </style>
 </head>
-
 <body>
     <div class="header">
-        <div style="display: flex; align-items: center;">
-            <button class="mobile-toggle" onclick="toggleSidebar()">☰</button>
-            <h1>Dashboard Administrativo</h1>
-        </div>        <div class="user-info">
-            <span class="welcome-text">Bienvenido, <?= $_SESSION['user_email'] ?></span>
-            <a href="<?= BASE_URL ?>admin/logout" class="logout-btn desktop-only">Cerrar Sesión</a>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <a href="<?= BASE_URL ?>">
+                <img src="<?= BASE_URL ?>assets/img/logo.png" alt="Cimientos Logo" height="40">
+            </a>
+            <h1>Gestionar Contactos</h1>
+        </div>
+        <div class="user-info">
+            <span>Bienvenido, <?php echo htmlspecialchars($_SESSION['user_email']); ?></span>
+            <a href="<?php echo BASE_URL; ?>admin/dashboard" class="back-btn">Dashboard</a>
+            <a href="<?php echo BASE_URL; ?>admin/logout" class="logout-btn">Cerrar Sesión</a>
         </div>
     </div>
 
-    <div class="container">
-        <nav class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <h2>Gestión de Contactos</h2>
-            </div>            <ul class="nav-menu">
+    <div class="main-container">
+        <div class="sidebar">
+            <h3>Proyectos</h3>
+            <ul class="project-list">
                 <?php foreach ($projects as $key => $name): ?>
-                    <li class="nav-item">
-                        <a href="<?= BASE_URL ?>admin/dashboard?project=<?= $key ?>" 
-                           class="nav-link <?= $currentProject === $key ? 'active' : '' ?>">
+                    <li class="project-item">
+                        <a href="<?= BASE_URL ?>admin/contacts?project=<?= $key ?>" 
+                           class="project-link <?= $currentProject === $key ? 'active' : '' ?>">
                             <?= htmlspecialchars($name) ?>
                         </a>
                     </li>
                 <?php endforeach; ?>
-                
-                <!-- Cerrar Sesión para móvil -->
-                <li class="nav-item mobile-only">
-                    <div class="nav-divider"></div>
-                    <a href="<?= BASE_URL ?>admin/logout" class="nav-link logout-mobile">
-                        <span class="logout-icon">🚪</span>
-                        Cerrar Sesión
-                    </a>
-                </li>
             </ul>
-        </nav>
+        </div>
 
-        <div class="main-content">
-            <div class="breadcrumb">
-                Dashboard → <span><?= htmlspecialchars($projectName) ?></span>
-            </div>
-
-            <div class="content-header">
-                <h2><?= htmlspecialchars($projectName) ?></h2>
-            </div>
-
+        <div class="content">
             <?php if (isset($_GET['success']) && $_GET['success'] === 'deleted'): ?>
-                <div class="alert alert-success">Contacto eliminado correctamente.</div>
+                <div class="alert alert-success">Contacto eliminado exitosamente.</div>
             <?php endif; ?>
 
             <?php if (isset($_GET['error']) && $_GET['error'] === 'delete_failed'): ?>
                 <div class="alert alert-error">Error al eliminar el contacto.</div>
             <?php endif; ?>
 
-            <div class="stats-card">
-                <h3>Total de Contactos</h3>
-                <div class="stats-number"><?= $data['total'] ?></div>
+            <div class="content-header">
+                <h2><?= htmlspecialchars($projectName) ?></h2>
+                <div class="contacts-count">
+                    <?= $data['total'] ?> contacto<?= $data['total'] !== 1 ? 's' : '' ?>
+                </div>
             </div>
 
-            <?php if (!empty($data['contacts'])): ?>
+            <?php if (empty($data['contacts'])): ?>
+                <div class="no-data">
+                    <h3>No hay contactos disponibles</h3>
+                    <p>Aún no se han recibido contactos para este proyecto.</p>
+                </div>
+            <?php else: ?>
                 <div class="table-container">
-                    <div class="table-header">
-                        Contactos - Página <?= $data['page'] ?> de <?= $data['totalPages'] ?>
-                    </div>
-                    <table class="table">
+                    <table>
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -570,37 +448,8 @@
                         <?php endif; ?>
                     </div>
                 <?php endif; ?>
-            <?php else: ?>
-                <div class="table-container">
-                    <div class="table-header">
-                        <?= htmlspecialchars($projectName) ?>
-                    </div>
-                    <div class="no-data">
-                        No hay contactos disponibles para este proyecto.
-                    </div>
-                </div>
             <?php endif; ?>
         </div>
     </div>
-
-    <script>
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('active');
-        }
-
-        // Cerrar sidebar al hacer clic fuera en móvil
-        document.addEventListener('click', function(event) {
-            const sidebar = document.getElementById('sidebar');
-            const toggle = document.querySelector('.mobile-toggle');
-            
-            if (window.innerWidth <= 768 && 
-                !sidebar.contains(event.target) && 
-                !toggle.contains(event.target) && 
-                sidebar.classList.contains('active')) {
-                sidebar.classList.remove('active');
-            }
-        });
-    </script>
 </body>
 </html>

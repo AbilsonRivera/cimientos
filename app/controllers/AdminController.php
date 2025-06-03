@@ -2,9 +2,11 @@
 
 class AdminController extends Controller {
     private $userModel;
+    private $contactsModel;
     
     public function __construct() {
         $this->userModel = new UserModel();
+        $this->contactsModel = new ContactsModel();
         $this->startSession();
     }
     
@@ -65,9 +67,40 @@ class AdminController extends Controller {
             header('Location: ' . BASE_URL . 'admin/login');
             exit;
         }
-    }
-      public function dashboard() {
+    }    public function dashboard() {
         $this->requireAuth();
-        $this->view('admin/dashboard');
+        
+        $project = $_GET['project'] ?? 'home_contacts';
+        $page = (int)($_GET['page'] ?? 1);
+        
+        $data = $this->contactsModel->getContactsByProject($project, $page);
+        $projects = $this->contactsModel->getProjects();
+        
+        if ($data === false) {
+            $project = 'home_contacts';
+            $data = $this->contactsModel->getContactsByProject($project, $page);
+        }
+        
+        $this->view('admin/dashboard', [
+            'data' => $data,
+            'projects' => $projects,
+            'currentProject' => $project,
+            'projectName' => $projects[$project] ?? 'Proyecto'        ]);
+    }
+    
+    public function deleteContact() {
+        $this->requireAuth();
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $project = $_POST['project'] ?? '';
+            $id = $_POST['id'] ?? '';
+            
+            if ($this->contactsModel->deleteContact($project, $id)) {
+                header('Location: ' . BASE_URL . 'admin/dashboard?project=' . $project . '&success=deleted');
+            } else {
+                header('Location: ' . BASE_URL . 'admin/dashboard?project=' . $project . '&error=delete_failed');
+            }
+            exit;
+        }
     }
 }

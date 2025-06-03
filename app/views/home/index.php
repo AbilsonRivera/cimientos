@@ -165,7 +165,7 @@ setTimeout(function() {
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="project-card">
-                    <img src="/placeholder.svg?height=250&width=400" alt="Viventa Plaza">
+                    <img src="./assets/img/projects/3.jpg" alt="Viventa Plaza">
                     <div class="project-card-body">
                         <h4 class="project-title">Viventa Plaza</h4>
                         <p class="project-description">24 unidades cerca al CC Plaza de las Américas.</p>
@@ -176,7 +176,7 @@ setTimeout(function() {
 
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="project-card">
-                    <img src="/placeholder.svg?height=250&width=400" alt="Viventa Santa Bárbara">
+                    <img src="./assets/img/projects/3.jpg" alt="Viventa Santa Bárbara">
                     <div class="project-card-body">
                         <h4 class="project-title">Viventa Santa Bárbara</h4>
                         <p class="project-description">50 unidades cerca al CC Santa Bárbara.</p>
@@ -187,7 +187,7 @@ setTimeout(function() {
 
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="project-card">
-                    <img src="/placeholder.svg?height=250&width=400" alt="Viventa Usaquén">
+                    <img src="./assets/img/projects/3.jpg" alt="Viventa Usaquén">
                     <div class="project-card-body">
                         <h4 class="project-title">Viventa Usaquén</h4>
                         <p class="project-description">40 unidades cerca al CC Unicentro.</p>
@@ -198,7 +198,7 @@ setTimeout(function() {
 
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="project-card">
-                    <img src="/placeholder.svg?height=250&width=400" alt="Viventa Andes">
+                    <img src="./assets/img/projects/3.jpg" alt="Viventa Andes">
                     <div class="project-card-body">
                         <h4 class="project-title">Viventa Andes</h4>
                         <p class="project-description">30 unidades cerca al CC Iserra 100.</p>
@@ -209,7 +209,7 @@ setTimeout(function() {
 
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="project-card">
-                    <img src="/placeholder.svg?height=250&width=400" alt="Viventa Guaduas">
+                    <img src="./assets/img/projects/3.jpg" alt="Viventa Guaduas">
                     <div class="project-card-body">
                         <h4 class="project-title">Viventa Guaduas</h4>
                         <p class="project-description">50 unidades con proyección de alta valorización.</p>
