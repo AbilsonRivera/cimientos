@@ -11,6 +11,11 @@ class ProjectController extends Controller {
                 'url' => 'familia.jpg',
                 'position' => 'center 40%'
             ],
+            'detail_image' => '3.jpg',
+            'map' => [
+                'iframe' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.6087661231894!2d-74.13757972674034!3d4.606322343417089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a4b77c7f5e7%3A0x1c5c5c5c5c5c5c5c!2sPlaza%20de%20las%20Am%C3%A9ricas!5e0!3m2!1ses-419!2sco!4v1648968979925!5m2!1ses-419!2sco',
+                'address' => 'Plaza de las Américas, Bogotá, Colombia'
+            ],
             'nearby' => [
                 ['icon' => 'shopping-cart', 'name' => 'CC Plaza de las Américas', 'distance' => '5 minutos caminando'],
                 ['icon' => 'subway', 'name' => 'TransMilenio', 'distance' => '2 cuadras'],
@@ -18,12 +23,12 @@ class ProjectController extends Controller {
                 ['icon' => 'hospital', 'name' => 'Hospital MediPlaza', 'distance' => 'Zona hospitalaria cercana']
             ],
             'features' => [
-                ['icon' => 'home', 'title' => '24 apartamentos', 'description' => 'desde 65 m²'],
+                ['icon' => 'home', 'title' => 'apartamentos', 'description' => 'desde 65 m²'],
                 ['icon' => 'building', 'title' => '6 pisos', 'description' => 'con parqueaderos subterráneos'],
-                ['icon' => 'couch', 'title' => 'Espacios amplios', 'description' => 'diseño tipo loft'],
-                ['icon' => 'star', 'title' => 'Acabados premium', 'description' => 'materiales importados'],
-                ['icon' => 'dumbbell', 'title' => 'Gimnasio', 'description' => 'equipado y zona de yoga'],
-                ['icon' => 'tree', 'title' => 'Terraza verde', 'description' => 'área social compartida']
+                ['icon' => 'couch', 'title' => 'Espacios amplios', 'description' => 'y bien distribuidos'],
+                ['icon' => 'star', 'title' => 'Acabados', 'description' => 'de alta calidad'],
+                ['icon' => 'dumbbell', 'title' => 'Posiblidad', 'description' => 'de personalización'],
+                ['icon' => 'tree', 'title' => 'Excelente proyeccion', 'description' => 'de valorización']
             ]
         ],
         'viventa-santa-barbara' => [
@@ -34,6 +39,11 @@ class ProjectController extends Controller {
                 'url' => 'santa-barbara-hero.jpg',
                 'position' => 'center center'
             ],
+            'detail_image' => '3.jpg',
+            'map' => [
+                'iframe' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.234567890123!2d-74.05852562674034!3d4.652945643417089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a5b88d8f6e8%3A0x2d6d6d6d6d6d6d6d!2sSanta%20B%C3%A1rbara%2C%20Bogot%C3%A1!5e0!3m2!1ses-419!2sco!4v1648968979925!5m2!1ses-419!2sco',
+                'address' => 'Santa Bárbara, Bogotá, Colombia'
+            ],
             'nearby' => [
                 ['icon' => 'shopping-cart', 'name' => 'CC Santa Bárbara', 'distance' => '3 minutos caminando'],
                 ['icon' => 'subway', 'name' => 'TransMilenio', 'distance' => '5 cuadras'],
@@ -41,12 +51,12 @@ class ProjectController extends Controller {
                 ['icon' => 'hospital', 'name' => 'Clínica del Country', 'distance' => 'Zona hospitalaria cercana']
             ],
             'features' => [
-                ['icon' => 'home', 'title' => '50 apartamentos', 'description' => 'desde 85 m²'],
-                ['icon' => 'building', 'title' => '12 pisos', 'description' => 'con ascensor inteligente'],
-                ['icon' => 'swimming-pool', 'title' => 'Piscina', 'description' => 'climatizada cubierta'],
-                ['icon' => 'star', 'title' => 'Acabados de lujo', 'description' => 'marcas europeas'],
-                ['icon' => 'chess', 'title' => 'Sala de juegos', 'description' => 'y centro de negocios'],
-                ['icon' => 'car', 'title' => 'Parqueadero doble', 'description' => 'para cada unidad']
+                ['icon' => 'home', 'title' => 'apartamentos', 'description' => 'desde 65 m²'],
+                ['icon' => 'building', 'title' => '6 pisos', 'description' => 'con parqueaderos subterráneos'],
+                ['icon' => 'couch', 'title' => 'Espacios amplios', 'description' => 'y bien distribuidos'],
+                ['icon' => 'star', 'title' => 'Acabados', 'description' => 'de alta calidad'],
+                ['icon' => 'dumbbell', 'title' => 'Posiblidad', 'description' => 'de personalización'],
+                ['icon' => 'tree', 'title' => 'Excelente proyeccion', 'description' => 'de valorización']
             ]
         ],
         'viventa-usaquen' => [
@@ -57,6 +67,11 @@ class ProjectController extends Controller {
                 'url' => 'usaquen-hero.jpg',
                 'position' => 'center 30%'
             ],
+            'detail_image' => '3.jpg',
+            'map' => [
+                'iframe' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.789012345678!2d-74.03185062674034!3d4.693834643417089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a6c99e9f7e9%3A0x3e7e7e7e7e7e7e7e!2sUsaqu%C3%A9n%2C%20Bogot%C3%A1!5e0!3m2!1ses-419!2sco!4v1648968979925!5m2!1ses-419!2sco',
+                'address' => 'Usaquén, Bogotá, Colombia'
+            ],
             'nearby' => [
                 ['icon' => 'shopping-cart', 'name' => 'CC Unicentro', 'distance' => '5 minutos caminando'],
                 ['icon' => 'subway', 'name' => 'TransMilenio', 'distance' => '3 cuadras'],
@@ -64,12 +79,12 @@ class ProjectController extends Controller {
                 ['icon' => 'hospital', 'name' => 'Fundación Santa Fe', 'distance' => 'Zona hospitalaria cercana']
             ],
             'features' => [
-                ['icon' => 'home', 'title' => '40 apartamentos', 'description' => 'desde 75 m²'],
-                ['icon' => 'building', 'title' => '8 pisos', 'description' => 'con parqueaderos subterráneos'],
-                ['icon' => 'couch', 'title' => 'Espacios funcionales', 'description' => 'y bien distribuidos'],
-                ['icon' => 'star', 'title' => 'Acabados de alta calidad', 'description' => 'diseño moderno'],
-                ['icon' => 'paint-brush', 'title' => 'Personalización', 'description' => 'opciones de acabados'],
-                ['icon' => 'chart-line', 'title' => 'Alta valorización', 'description' => 'ubicación premium']
+                ['icon' => 'home', 'title' => 'apartamentos', 'description' => 'desde 65 m²'],
+                ['icon' => 'building', 'title' => '6 pisos', 'description' => 'con parqueaderos subterráneos'],
+                ['icon' => 'couch', 'title' => 'Espacios amplios', 'description' => 'y bien distribuidos'],
+                ['icon' => 'star', 'title' => 'Acabados', 'description' => 'de alta calidad'],
+                ['icon' => 'dumbbell', 'title' => 'Posiblidad', 'description' => 'de personalización'],
+                ['icon' => 'tree', 'title' => 'Excelente proyeccion', 'description' => 'de valorización']
             ]
         ],
         'viventa-andes' => [
@@ -80,6 +95,11 @@ class ProjectController extends Controller {
                 'url' => 'andes-hero.jpg',
                 'position' => 'center 45%'
             ],
+            'detail_image' => '3.jpg',
+            'map' => [
+                'iframe' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.345678901234!2d-74.08285062674034!3d4.609734643417089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a7d10f0f8ea%3A0x4f8f8f8f8f8f8f8f!2sLos%20Andes%2C%20Bogot%C3%A1!5e0!3m2!1ses-419!2sco!4v1648968979925!5m2!1ses-419!2sco',
+                'address' => 'Los Andes, Bogotá, Colombia'
+            ],
             'nearby' => [
                 ['icon' => 'shopping-cart', 'name' => 'CC Iserra 100', 'distance' => '5 minutos caminando'],
                 ['icon' => 'subway', 'name' => 'TransMilenio', 'distance' => '4 cuadras'],
@@ -87,12 +107,12 @@ class ProjectController extends Controller {
                 ['icon' => 'hospital', 'name' => 'Hospital Universitario', 'distance' => 'Zona hospitalaria cercana']
             ],
             'features' => [
-                ['icon' => 'home', 'title' => '30 apartamentos', 'description' => 'desde 55 m²'],
-                ['icon' => 'building', 'title' => '7 pisos', 'description' => 'con ascensor'],
-                ['icon' => 'bicycle', 'title' => 'Bicicletero', 'description' => 'y taller de reparación'],
-                ['icon' => 'wifi', 'title' => 'Smart Building', 'description' => 'domótica incluida'],
-                ['icon' => 'recycle', 'title' => 'Eco-friendly', 'description' => 'paneles solares'],
-                ['icon' => 'users', 'title' => 'Coworking', 'description' => 'espacio compartido']
+                ['icon' => 'home', 'title' => 'apartamentos', 'description' => 'desde 65 m²'],
+                ['icon' => 'building', 'title' => '6 pisos', 'description' => 'con parqueaderos subterráneos'],
+                ['icon' => 'couch', 'title' => 'Espacios amplios', 'description' => 'y bien distribuidos'],
+                ['icon' => 'star', 'title' => 'Acabados', 'description' => 'de alta calidad'],
+                ['icon' => 'dumbbell', 'title' => 'Posiblidad', 'description' => 'de personalización'],
+                ['icon' => 'tree', 'title' => 'Excelente proyeccion', 'description' => 'de valorización']
             ]
         ],
         'viventa-guaduas' => [
@@ -103,6 +123,11 @@ class ProjectController extends Controller {
                 'url' => 'guaduas-hero.jpg',
                 'position' => 'center 35%'
             ],
+            'detail_image' => '3.jpg',
+            'map' => [
+                'iframe' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31793.639099049087!2d-74.62190061029524!3d5.070514173992969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e40bd6345c63247%3A0x6e97df1a867a7d54!2sGuaduas%2C%20Cundinamarca!5e0!3m2!1ses-419!2sco!4v1748980055971!5m2!1ses-419!2sco',
+                'address' => 'Guaduas, Cundinamarca, Colombia'
+            ],
             'nearby' => [
                 ['icon' => 'shopping-cart', 'name' => 'Centro Comercial', 'distance' => '10 minutos caminando'],
                 ['icon' => 'bus', 'name' => 'Terminal de Transporte', 'distance' => '5 cuadras'],
@@ -110,12 +135,12 @@ class ProjectController extends Controller {
                 ['icon' => 'hospital', 'name' => 'Hospital San José', 'distance' => 'Zona hospitalaria cercana']
             ],
             'features' => [
-                ['icon' => 'home', 'title' => '50 apartamentos', 'description' => 'desde 60 m²'],
-                ['icon' => 'building', 'title' => '5 pisos', 'description' => 'estilo colonial'],
-                ['icon' => 'mountain', 'title' => 'Vista panorámica', 'description' => 'a la montaña'],
-                ['icon' => 'umbrella-beach', 'title' => 'Área social', 'description' => 'con piscina'],
-                ['icon' => 'leaf', 'title' => 'Jardines', 'description' => 'áreas verdes privadas'],
-                ['icon' => 'shield-alt', 'title' => 'Conjunto cerrado', 'description' => 'seguridad 24/7']
+                ['icon' => 'home', 'title' => 'apartamentos', 'description' => 'desde 65 m²'],
+                ['icon' => 'building', 'title' => '6 pisos', 'description' => 'con parqueaderos subterráneos'],
+                ['icon' => 'couch', 'title' => 'Espacios amplios', 'description' => 'y bien distribuidos'],
+                ['icon' => 'star', 'title' => 'Acabados', 'description' => 'de alta calidad'],
+                ['icon' => 'dumbbell', 'title' => 'Posiblidad', 'description' => 'de personalización'],
+                ['icon' => 'tree', 'title' => 'Excelente proyeccion', 'description' => 'de valorización']
             ]
         ]
     ];

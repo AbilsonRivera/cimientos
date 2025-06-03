@@ -1,5 +1,65 @@
 <?php require_once 'app/views/templates/header.php'; ?>
 
+<!-- Modal de éxito -->
+<?php if (isset($_GET['success']) && $_GET['success'] == 'home'): ?>
+<div class="modal fade show" id="successModal" tabindex="-1" style="display: block; background: rgba(0,0,0,0.5);">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center p-5">
+                <div class="mb-4">
+                    <i class="fas fa-check-circle" style="font-size: 4rem; color: #28a745;"></i>
+                </div>
+                <h4 class="mb-3" style="color: var(--primary-color);">¡Mensaje Enviado Exitosamente!</h4>
+                <p class="mb-4">Gracias por tu interés. Un asesor de Cimientos se pondrá en contacto contigo muy pronto para brindarte toda la información que necesitas.</p>
+                <button type="button" class="btn btn-primary" onclick="closeSuccessModal()">Entendido</button>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
+<!-- Modal de error -->
+<?php if (isset($_GET['error'])): ?>
+<div class="modal fade show" id="errorModal" tabindex="-1" style="display: block; background: rgba(0,0,0,0.5);">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center p-5">
+                <div class="mb-4">
+                    <i class="fas fa-exclamation-triangle" style="font-size: 4rem; color: #dc3545;"></i>
+                </div>
+                <h4 class="mb-3" style="color: #dc3545;">Oops... Algo salió mal</h4>
+                <p class="mb-4">Hubo un problema al enviar tu mensaje. Por favor verifica los datos e intenta nuevamente.</p>
+                <button type="button" class="btn btn-danger" onclick="closeErrorModal()">Intentar de nuevo</button>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
+<script>
+function closeSuccessModal() {
+    document.getElementById('successModal').style.display = 'none';
+    // Limpiar URL
+    window.history.replaceState({}, document.title, window.location.pathname);
+}
+
+function closeErrorModal() {
+    document.getElementById('errorModal').style.display = 'none';
+    // Limpiar URL
+    window.history.replaceState({}, document.title, window.location.pathname);
+}
+
+// Auto cerrar después de 5 segundos
+setTimeout(function() {
+    if (document.getElementById('successModal')) {
+        closeSuccessModal();
+    }
+    if (document.getElementById('errorModal')) {
+        closeErrorModal();
+    }
+}, 5000);
+</script>
+
 <!-- Hero Section -->
 <section id="home" class="hero">
     <div class="container">
@@ -173,28 +233,28 @@
             </div>
             <div class="col-lg-6">
                 <div class="contact-form">
-                    <form>
+                    <form action="<?= BASE_URL ?>contact/submitHome" method="POST">
                         <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre completo" required>
+                            <input type="text" name="nombre" class="form-control" placeholder="Nombre completo" required>
                         </div>
                         <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="Correo electrónico" required>
+                            <input type="email" name="email" class="form-control" placeholder="Correo electrónico" required>
                         </div>
                         <div class="mb-3">
-                            <input type="tel" class="form-control" placeholder="Teléfono" required>
+                            <input type="tel" name="telefono" class="form-control" placeholder="Teléfono" required>
                         </div>
                         <div class="mb-3">
-                            <select class="form-control" required>
+                            <select name="proyecto_interes" class="form-control" required>
                                 <option value="">Proyecto de interés</option>
-                                <option value="plaza">Viventa Plaza</option>
-                                <option value="santa-barbara">Viventa Santa Bárbara</option>
-                                <option value="usaquen">Viventa Usaquén</option>
-                                <option value="andes">Viventa Andes</option>
-                                <option value="guaduas">Viventa Guaduas</option>
+                                <option value="viventa-plaza">Viventa Plaza</option>
+                                <option value="viventa-santa-barbara">Viventa Santa Bárbara</option>
+                                <option value="viventa-usaquen">Viventa Usaquén</option>
+                                <option value="viventa-andes">Viventa Andes</option>
+                                <option value="viventa-guaduas">Viventa Guaduas</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control" rows="4"
+                            <textarea name="mensaje" class="form-control" rows="4"
                                 placeholder="Mensaje adicional (opcional)"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Quiero información</button>

@@ -1,10 +1,10 @@
 <?php
-// Load configuration
-require_once 'app/config/config.php';
+// Inicializar el sistema
+require_once 'app/bootstrap.php';
 
-// Load core classes
-require_once 'app/core/App.php';
+// Inicializar la aplicación
+initializeApp();
 
-// Start the application
+// Cargar y ejecutar la aplicación principal
 $app = new App();
 ?>
